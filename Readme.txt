@@ -26,5 +26,21 @@ Unclear Steps from the OF tutorial
 
 STEP 4: 
 - Add other modules through requirements.txt
+- When changes, we need to build and deploy again
+- To test: curl localhost:8080/function/hello-python --data-binary '{
+ "url": "https://blog.alexellis.io/rss/",
+ "term": "docker"
+}'
+- Logging and troubleshooting command:
+	- Docker Swarm
+		- All services: docker service ls
+		- Check Specific function : docker service ps function_name
+		- Check Specific function logs : docker service logs function_name
+	- Metrics:
+		- Use Prometheus UI at http://localhost:9090
+	- Troubleshoot [can't reach service error]:
+		- For multi-node cluster, push images into Docker Hub or similar registry before deploying
+		- If it still fails, use docker service logs --no-trunc=true hello-python to get more information
+		- in the event that it still fails, recreate Swarm services and rerun deploy
 
 
