@@ -24,4 +24,7 @@ Unclear Steps from the OF tutorial
 	echo -n stringofpasswordgiven | faas-cli login --username=admin --password-stdin
 - To test: (e.g.) curl http://127.0.0.1:8080/function/hello-python -d "HI"
 
+STEP 4: 
+- Add other modules through requirements.txt
+
 
